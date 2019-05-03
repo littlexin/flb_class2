@@ -157,5 +157,6 @@
 #define RT_USING_DMP
 #define RT_USING_PID
 #define RT_USING_ANOP
+#define RT_USING_LCD
 
 #endif

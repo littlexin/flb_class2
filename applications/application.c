@@ -97,6 +97,13 @@ void rt_init_thread_entry(void* parameter)
         rt_kprintf("TCP/IP initialized!\n");
     }
 #endif
+		
+#ifdef RT_USING_LCD
+
+		extern unsigned char BSP_LCD_Init(void);
+		BSP_LCD_Init();
+		
+#endif /* RT_USING_ANOP */				
 
 #ifdef RT_USING_ANOP
 
@@ -104,6 +111,7 @@ void rt_init_thread_entry(void* parameter)
 		anop_init();
 		
 #endif /* RT_USING_ANOP */		
+		
 //		extern int pwm_init(void);
 //		pwm_init();
 		

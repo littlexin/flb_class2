@@ -26,6 +26,8 @@
 ".\build\drv_hwtimer.o"
 ".\build\stm32_i2c.o"
 ".\build\drv_pwm.o"
+".\build\ili9486l.o"
+".\build\bsp_lcd.o"
 ".\build\dmp.o"
 ".\build\inv_mpu.o"
 ".\build\inv_mpu_dmp_motion_driver.o"

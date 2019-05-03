@@ -30,7 +30,11 @@ if GetDepend('RT_USING_I2C') == True:
 
 # add pwm driver.
 if GetDepend('RT_USING_PWM') == True:
-	src += ['drv_pwm.c']	
+	src += ['drv_pwm.c']
+	
+if GetDepend('RT_USING_LCD') == True:
+	src += ['ili9486l.c']
+	src += ['bsp_lcd.c']
 
 CPPPATH = [cwd]
 
