@@ -171,9 +171,9 @@ uint8_t BSP_LCD_Init(void)
 	
 	/*Initialize the display orientation*/
 	BSP_LCD_SetOrientation(Degrees90);
-
-	BSP_LCD_DisplayStringAt(0, 0, "hello world!!", LEFT_MODE);
-
+	BSP_LCD_DisplayStringAt(0, 0, "roll:-", LEFT_MODE);
+	BSP_LCD_DisplayStringAt(0, 24, "pitch:-", LEFT_MODE);
+	BSP_LCD_DisplayStringAt(0, 48, "mode:-", LEFT_MODE);
   ret = LCD_OK;
   
   return ret;

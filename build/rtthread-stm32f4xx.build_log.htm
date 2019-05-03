@@ -27,18 +27,23 @@ Project File Date:  05/03/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'rt-thread_stm32f4xx'
-compiling bsp_lcd.c...
+compiling dmp.c...
+libdmp\dmp.c(110): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  						BSP_LCD_DisplayStringAt(0, 24, tmp, LEFT_MODE);
+libdmp\dmp.c(112): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  						BSP_LCD_DisplayStringAt(0, 0, tmp, LEFT_MODE);
+libdmp\dmp.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=112666 RO-data=27134 RW-data=636 ZI-data=4724  
+Program Size: Code=114734 RO-data=27130 RW-data=640 ZI-data=4720  
 After Build - User command #1: fromelf --bin .\build\rtthread-stm32f4xx.axf --output rtthread.bin
-".\build\rtthread-stm32f4xx.axf" - 0 Error(s), 0 Warning(s).
+".\build\rtthread-stm32f4xx.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   F:\xin\Git_Code\flb_control\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.10.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

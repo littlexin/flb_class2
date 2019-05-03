@@ -1,6 +1,8 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <math.h>
+#include <stdio.h>
+#include "bsp_lcd.h"
 #include "dmp.h"
 #include "inv_mpu.h"
 #include "inv_mpu_dmp_motion_driver.h"
@@ -77,6 +79,7 @@ static unsigned char run_self_test(void)
 void dmp_thread_entry(void* parameter)
 {
     struct euler_angle *el = parameter;
+		char tmp[20];
     
     while(1)
     {
@@ -102,6 +105,11 @@ void dmp_thread_entry(void* parameter)
                               -2 * q[1] * q[1] - 2 * q[2] * q[2] + 1) * 57.3f;
             el->yaw   = atan2f(2 * (q[1] * q[2] + q[0] * q[3]), 
                                q[0] * q[0] + q[1] * q[1] - q[2] * q[2]- q[3] * q[3]) * 57.3f;
+						
+						sprintf(tmp, "pitch:%.1f", el->pitch);
+						BSP_LCD_DisplayStringAt(0, 24, tmp, LEFT_MODE);
+						sprintf(tmp, "roll:%.1f", el->roll);
+						BSP_LCD_DisplayStringAt(0, 0, tmp, LEFT_MODE);
         }
     }
 }
