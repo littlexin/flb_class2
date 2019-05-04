@@ -215,8 +215,8 @@ int dmp_sys_init(void)
     
     i2c_bus = rt_i2c_bus_device_find("i2c1");
     RT_ASSERT(i2c_bus);
-    
-    mpu_init(&int_param);
+    if(mpu_init(&int_param) != 0)BSP_LCD_DisplayStringAt(0, 72, "abc", LEFT_MODE);
+//    mpu_init(&int_param);
     mpu_set_sensors(INV_XYZ_GYRO | INV_XYZ_ACCEL);
     /* Push both gyro and accel data into the FIFO. */
     mpu_configure_fifo(INV_XYZ_GYRO | INV_XYZ_ACCEL);
@@ -228,11 +228,12 @@ int dmp_sys_init(void)
                        DMP_FEATURE_SEND_CAL_GYRO  | DMP_FEATURE_GYRO_CAL);
     dmp_set_fifo_rate(DEFAULT_MPU_HZ);
     
-    run_self_test();
+    if(run_self_test())BSP_LCD_DisplayStringAt(0, 96, "efg", LEFT_MODE);
 		dmp_thread_init();
     mpu_set_dmp_state(1);
     
-    return 0;
+    
+		return 0;
 }
 
 #ifdef RT_USING_FINSH

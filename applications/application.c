@@ -69,6 +69,13 @@ void rt_init_thread_entry(void* parameter)
 	
 //		rt_components_init();
 	/*only use board component init*/
+
+#ifdef RT_USING_LCD
+
+		extern unsigned char BSP_LCD_Init(void);
+		BSP_LCD_Init();
+		
+#endif /* RT_USING_LCD */			
 	
 #ifdef RT_USING_I2C
     extern void rt_hw_i2c_init();
@@ -97,13 +104,7 @@ void rt_init_thread_entry(void* parameter)
         rt_kprintf("TCP/IP initialized!\n");
     }
 #endif
-		
-#ifdef RT_USING_LCD
-
-		extern unsigned char BSP_LCD_Init(void);
-		BSP_LCD_Init();
-		
-#endif /* RT_USING_ANOP */				
+				
 
 #ifdef RT_USING_ANOP
 

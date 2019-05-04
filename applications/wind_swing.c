@@ -33,9 +33,9 @@
 #define INC_KI              0.01f       /* Ki for incremental pid controller */
 #define INC_KD              450         /* Kd for incremental pid controller */
 
-#define POS_KP              2.2f        /* Kp for position pid controller */
-#define POS_KI              0.01f       /* Ki for position pid controller */
-#define POS_KD              200         /* Kd for position pid controller */
+#define POS_KP              1.8f        /* Kp for position pid controller */
+#define POS_KI              0.02f       /* Ki for position pid controller */
+#define POS_KD              180         /* Kd for position pid controller */
 
 static pid_t pid_x;
 static pid_t pid_y;
@@ -355,8 +355,8 @@ void swing_init(int mode)
     pid_set_integral_limit(pid_y, -INTEGRAL_LIMIT, INTEGRAL_LIMIT);
     pid_set_integral_separation(pid_x, -INTEGRAL_SEPARATE, INTEGRAL_SEPARATE);
     pid_set_integral_separation(pid_y, -INTEGRAL_SEPARATE, INTEGRAL_SEPARATE);
-//    pid_config(pid_x, POS_KP, POS_KI, POS_KD);
-//    pid_config(pid_y, POS_KP, POS_KI, POS_KD);
+    pid_config(pid_x, POS_KP, POS_KI, POS_KD);
+    pid_config(pid_y, POS_KP, POS_KI, POS_KD);
 #elif defined (SWING_USE_INC_PID)
     pid_config(pid_x, INC_KP, INC_KI, INC_KD);
     pid_config(pid_y, INC_KP, INC_KI, INC_KD);
